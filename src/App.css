@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.tool{
+  display: flex;
+}
+.head{
+  display: flex;
+}
+.log{
+  display: flex;
+margin-left:auto;
+}
+
+.user{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+
+}
+.lay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 500px;
+  margin: auto;
+}
+  
+.cent{
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  max-width:550px;
+  width: 450px;
+
+ 
+  
+}
+.lgbtn{
+text-decoration: none;
+padding-bottom: 20px;
+}
+.header{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
