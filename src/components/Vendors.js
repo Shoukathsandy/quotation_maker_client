@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Button from '@mui/material/Button';
 import MaterialTable from "@material-table/core";
+import "./dashboard.css";
 
 function Vendors() {
     const navigate = useNavigate();
