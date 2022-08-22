@@ -1,42 +1,42 @@
 import React from 'react';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { API } from "../globel";
 import { useEffect, useState } from 'react';
-import Vendorlist from "./Vendorlist";
-import Addvendor from "./Addvendor";
-
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import Button from '@mui/material/Button';
+import MaterialTable from "@material-table/core";
 
 function Vendors() {
-    // const navigate = useNavigate();
-    const [vendorlist, setVendorlist] = useState([]);
+    const navigate = useNavigate();
+    const [tableData, setTableData] = useState([]);
+    const columns =[
+        {title:"Vendorlist",field:"vendorlist"},
+        {title:"Vendor.Id",field:"vendorId"},
+        {title:"Contact",field:"contact"},
+        {title:"City",field:"city"},
+        
+      ]
 
     const getvendor = (() => {
         fetch(`${API}/Quotation/getvendorlist`, { method: "GET" })
             .then((response) => response.json())
-            .then((data) => setVendorlist(data))
+            .then((data) => {setTableData(data)
+            })
+        
     })
     useEffect(() => getvendor(), []);
     return (
         <>
-            <div className='dash'>
-                <table className="table">
-                    <thead>
-                        <tr className='table-dark'>
-                            <th scope="col">S.no</th>
-                            <th scope="col">Vendor List</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-primary">
-                        {vendorlist.map(({ vendorlist }) => (
-                            <tr>
-                                <th scope="row">1</th>
-                                <td> <Vendorlist vendorlist={vendorlist} /></td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+        <div className='dash'>
+         <Button  variant="contained" onClick={()=>{navigate("/dashboardlayout/Addvendor")}} startIcon={<GroupAddIcon />}>
+       Add vendor
+      </Button>
+      </div>
+        
+            <div className='dash'>             
+                  <MaterialTable columns={columns} data={tableData} title="vendor list"/>
             </div>
-            <Addvendor />
+           
         </>
     )
 }

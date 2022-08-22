@@ -12,6 +12,7 @@ import Vendors from "./components/Vendors";
 import Products from "./components/Products";
 import Projects from "./components/Projects";
 import Quotation from "./components/Quotation";
+import Addvendor from "./components/Addvendor";
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -28,7 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<Forgotpassword />} />
-          <Route path="/reset-password" element={<Resetpassword />} />
+          <Route path="/reset-password/:id/:pass_token" element={<Resetpassword />} />
         </Route>
         {/* <Route path="/home" element={< Home />} /> */}
         <Route path="/dashboardlayout" element={<Dashboardlayout />} >
@@ -40,6 +41,7 @@ function App() {
            <Route path="/dashboardlayout/Products" element={<Products />}/>
            <Route path="/dashboardlayout/Projects" element={<Projects />}/>
            <Route path="/dashboardlayout/Quotation" element={<Quotation />}/>
+           <Route path="/dashboardlayout/Addvendor" element={<Addvendor />}/>
      
         </Route>
        

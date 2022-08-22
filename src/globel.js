@@ -1,2 +1,3 @@
-// export const API = "https://quotationmaker.herokuapp.com";
-export const API = "http://localhost:5000";
+// https://qutation-maker.herokuapp.com/
+// export const API = "https://qutation-maker.herokuapp.com";
+export const API ="http://localhost:5000"
