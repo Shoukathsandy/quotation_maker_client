@@ -12,7 +12,7 @@ export default function Dashboardlayout() {
   const navigate = useNavigate();
   return (
     <>
-      <div> <nav className="navbar-expand-lg">
+      <div> <nav className="navbar-expand-lg primary">
         <AppBar position="static">
           <Toolbar>
             <Button color="inherit" >Quotation Maker</Button>
@@ -31,7 +31,7 @@ export default function Dashboardlayout() {
           </Toolbar>
         </AppBar>
       </nav></div>
-      <div className="container-fluid  ma">
+      <div className="container-fluid ma">
         <div className="row">
           <div className="col-lg-2" position="static">
             <div className="wrapper d-flex">

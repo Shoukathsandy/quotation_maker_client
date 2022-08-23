@@ -7,7 +7,10 @@ import Button from '@mui/material/Button';
 import MaterialTable from "@material-table/core";
 import "./dashboard.css";
 
-function Vendors() {
+export default function Vendorlist() {
+
+
+
     const navigate = useNavigate();
     const [tableData, setTableData] = useState([]);
     const columns =[
@@ -26,9 +29,9 @@ function Vendors() {
         
     })
     useEffect(() => getvendor(), []);
-    return (
-        <>
-        <div className='dash'>
+  return (
+   <>
+     <div className='dash'>
          <Button  variant="contained" onClick={()=>{navigate("/dashboardlayout/Addvendor")}} startIcon={<GroupAddIcon />}>
        Add vendor
       </Button>
@@ -37,9 +40,6 @@ function Vendors() {
             <div className='dash'>             
                   <MaterialTable columns={columns} data={tableData} title="vendor list"/>
             </div>
-           
-        </>
-    )
+   </>
+  )
 }
-
-export default Vendors
