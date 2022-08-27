@@ -13,6 +13,7 @@ import Products from "./components/Products";
 import Projects from "./components/Projects";
 import Quotation from "./components/Quotation";
 import Addvendor from "./components/Addvendor";
+import Editvendor from "./components/Editvendor";
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -42,7 +43,7 @@ function App() {
            <Route path="/dashboardlayout/Projects" element={<Projects />}/>
            <Route path="/dashboardlayout/Quotation" element={<Quotation />}/>
            <Route path="/dashboardlayout/Addvendor" element={<Addvendor />}/>
-     
+           <Route path="/dashboardlayout/Editvendor/:vendorId" element={<Editvendor />}/>
         </Route>
        
       </Routes>

@@ -1,22 +1,10 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	list-style: none;
-	text-decoration: none;
-	font-family: arial;
-}
+
 body{
 	background: #f3f5f9;
    
 }
 .wrapper{
 	position: relative;
-}
-.ma{
-    margin-left: -10px;
-	
-
 }
 .dash{
 	/* margin-left: 30px;
@@ -25,12 +13,20 @@ body{
 	align-items: center;
 	margin-top: 150px; */
 	/* border: 5px solid red; */
-	margin-left: 25px;
+	/* margin-left: 25px; */
 	margin-top: 10px;
+
+	
+
 	
 }
+.col-lg-2{
+	padding-right: 0;
+    padding-left: 0;
+}
+
 .addven{
-	margin-left: 25px;
+	margin-left: 5px;
 	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
@@ -38,7 +34,7 @@ body{
 }
 .sidebar{
 	position: fixed;
-	width: 250px;
+	width: 230px;
 	height: 100vh;
 	background: #fffbfbe0;
     padding-top: 5px;

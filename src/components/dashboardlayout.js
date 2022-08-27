@@ -31,10 +31,10 @@ export default function Dashboardlayout() {
           </Toolbar>
         </AppBar>
       </nav></div>
-      <div className="container-fluid ma">
+      <div className="container-fluid ma" >
         <div className="row">
-          <div className="col-lg-2" position="static">
-            <div className="wrapper d-flex">
+          <div className="col-lg-2">
+            <div>
               <div className="sidebar">
                 <div className="gpbt">
                   <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Dashboard")} >Dashboard</Button>
