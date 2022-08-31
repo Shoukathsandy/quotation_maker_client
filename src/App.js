@@ -13,15 +13,23 @@ import Products from "./components/Products";
 import Projects from "./components/Projects";
 import Quotation from "./components/Quotation";
 import Addvendor from "./components/Addvendor";
+import Addproducts from "./components/Addproducts";
 import Editvendor from "./components/Editvendor";
+import Editproduct from "./components/Editproducts";
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import Addcustomer from "./components/Addcustomer";
+import Editcustomer from "./components/Editcustomer";
+import Addprojects from "./components/Addprojects";
+import Editprojects from "./components/Editprojects";
+import Addquotation from "./components/Addquotations";
+import Editquotation from "./components/Editquotations";
 
 function App() {
   return (
 
-    <div>
+    <div className="App">
 
 
       <Routes>
@@ -35,17 +43,25 @@ function App() {
         {/* <Route path="/home" element={< Home />} /> */}
         <Route path="/dashboardlayout" element={<Dashboardlayout />} >
 
-          <Route index element={<Dashboard />}/>
-          <Route path="/dashboardlayout/Dashboard" element={<Dashboard />}/>
-          <Route path="/dashboardlayout/Customers" element={<Customers />}/>
-          <Route path="/dashboardlayout/Vendors" element={<Vendors />}/>
-           <Route path="/dashboardlayout/Products" element={<Products />}/>
-           <Route path="/dashboardlayout/Projects" element={<Projects />}/>
-           <Route path="/dashboardlayout/Quotation" element={<Quotation />}/>
-           <Route path="/dashboardlayout/Addvendor" element={<Addvendor />}/>
-           <Route path="/dashboardlayout/Editvendor/:vendorId" element={<Editvendor />}/>
+          <Route index element={<Dashboard />} />
+          <Route path="/dashboardlayout/Dashboard" element={<Dashboard />} />
+          <Route path="/dashboardlayout/Customers" element={<Customers />} />
+          <Route path="/dashboardlayout/Vendors" element={<Vendors />} />
+          <Route path="/dashboardlayout/Products" element={<Products />} />
+          <Route path="/dashboardlayout/Projects" element={<Projects />} />
+          <Route path="/dashboardlayout/Quotation" element={<Quotation />} />
+          <Route path="/dashboardlayout/Addvendor" element={<Addvendor />} />
+          <Route path="/dashboardlayout/Editvendor/:Email" element={<Editvendor />} />
+          <Route path="/dashboardlayout/Addproducts" element={<Addproducts />} />
+          <Route path="/dashboardlayout/Editproducts/:ItemNo" element={<Editproduct />} />
+          <Route path="/dashboardlayout/Addcustomers" element={<Addcustomer />} />
+          <Route path="/dashboardlayout/Editcustomer/:Email" element={<Editcustomer />} />
+          <Route path="/dashboardlayout/Addprojects" element={<Addprojects />} />
+          <Route path="/dashboardlayout/Editprojects/:ProjectId" element={<Editprojects />} />
+          <Route path="/dashboardlayout/Addquotation" element={<Addquotation />} />
+          <Route path="/dashboardlayout/Editquotations/:QuotationId" element={<Editquotation />} />
         </Route>
-       
+
       </Routes>
 
       <ToastContainer autoclose={5000} />

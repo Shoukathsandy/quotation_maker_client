@@ -9,16 +9,16 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import "./dashboard.css";
 
-export default function Addvendor() {
+export default function Addcustomer() {
     const navigate = useNavigate();
     const FormValidationSchema = yup.object({
-        Vendorname:yup.string().required(),
+        Customername:yup.string().required(),
         Email : yup.string().email().required(),
         Contact:yup.string().required(),
         City:yup.string().required(),
     })
     const { handleChange, handleSubmit, handleBlur, touched, values, errors } = useFormik({
-        initialValues: { Vendorname:"",Email:"",Contact:"",City:""},
+        initialValues: { Customername:"",Email:"",Contact:"",City:""},
         validationSchema: FormValidationSchema,
         onSubmit: (values) =>  add(values)
     })
@@ -26,7 +26,7 @@ export default function Addvendor() {
     const add=(data)=>{
         
 
-        fetch(`${API}/Quotation/createvendorlist`,
+        fetch(`${API}/Quotation/createcustomerlist`,
         {
             method: "POST",
             body: JSON.stringify(data),
@@ -40,7 +40,7 @@ export default function Addvendor() {
         } else {
             console.log(data);
             toast.success("success:" + data.msg);
-            navigate("/dashboardlayout/Vendors");
+            navigate("/dashboardlayout/Customers");
         }}
         )     
        
@@ -53,14 +53,14 @@ export default function Addvendor() {
        <form className='addven' onSubmit={handleSubmit}
            >
             < TextField type="text"
-                name="Vendorname"
-                label="Vendorname"
+                name="Customername"
+                label="Customername"
                 variant="outlined"
-                value={values.Vendorname}
+                value={values.Customername}
                 onChange={handleChange}
-                error={errors.Vendorname && touched.Vendorname }
+                error={errors.Customername && touched.Customername }
                 onBlur={handleBlur} 
-                helperText={errors.Vendorname && touched.Vendorname ? errors.Vendorname : ""}
+                helperText={errors.Customername && touched.Customername ? errors.Customername : ""}
                 />
                  < TextField type="text"
                 name="Email"
@@ -93,7 +93,7 @@ export default function Addvendor() {
                 helperText={errors.City && touched.City ? errors.City : ""}
                 />
              
-                <Button type="submit"  variant="contained" >Add Vendor</Button>
+                <Button type="submit"  variant="contained" >Add customer</Button>
                 
                 </form>
     </div>

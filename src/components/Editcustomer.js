@@ -10,11 +10,11 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import "./dashboard.css";
 
-export default function Editvendor() {
+export default function Editcustomer() {
   const [rowdata, setRowdata] = useState(null)
   const { Email } = useParams();
   const getvendor = (() => {
-    fetch(`${API}/Quotation/getvendorlist/${Email}`)
+    fetch(`${API}/Quotation/getcustomerbyemail/${Email}`)
       .then((response) => response.json())
       .then((data) => setRowdata(data))
 
@@ -36,14 +36,14 @@ function Edit({ rowdata }) {
   const navigate = useNavigate();
   const { Email } = useParams();
   const FormValidationSchema = yup.object({
-    Vendorname: yup.string().required(),
+    Customername: yup.string().required(),
     Email: yup.string().email().required(),
     Contact: yup.string().required(),
     City: yup.string().required(),
   })
   const { handleChange, handleSubmit, handleBlur, touched, values, errors } = useFormik({
     initialValues: {
-      Vendorname: rowdata.Vendorname,
+      Customername: rowdata.Customername,
       Email: rowdata.Email,
       Contact: rowdata.Contact,
       City: rowdata.City
@@ -53,7 +53,7 @@ function Edit({ rowdata }) {
   })
 
   const add = (data) => {
-    fetch(`${API}/Quotation/${Email}`,
+    fetch(`${API}/Quotation/updatecustomerdetails/${Email}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -68,7 +68,7 @@ function Edit({ rowdata }) {
         } else {
           console.log(data);
           toast.success("success:" + data.msg);
-          navigate("/dashboardlayout/Vendors");
+          navigate("/dashboardlayout/Customers");
         }
       }
       )
@@ -81,14 +81,14 @@ function Edit({ rowdata }) {
       <form className='addven' onSubmit={handleSubmit}
       >
         < TextField type="text"
-          name="Vendorname"
-          label="Vendorname"
+          name="Customername"
+          label="Customername"
           variant="outlined"
-          value={values.Vendorname}
+          value={values.Customername}
           onChange={handleChange}
-          error={errors.Vendorname && touched.Vendorname}
+          error={errors.Customername && touched.Customername}
           onBlur={handleBlur}
-          helperText={errors.Vendorname && touched.Vendorname ? errors.Vendorname : ""}
+          helperText={errors.Customername && touched.Customername ? errors.Customername : ""}
         />
         < TextField
           //  disabled="true"
@@ -123,7 +123,7 @@ function Edit({ rowdata }) {
           helperText={errors.City && touched.City ? errors.City : ""}
         />
 
-        <Button type="submit" variant="contained" >Save Vendor</Button>
+        <Button type="submit" variant="contained" >Save customer</Button>
 
       </form>
     </div>

@@ -6,7 +6,7 @@ function Layout() {
   return (
     <>
     <div >
-      <div className="lay">
+      <div className="d-flex lay">
         <div className="cent border">
           <div className="expand-lg ">
             <div className="header"><h1>Quotation Maker</h1></div>

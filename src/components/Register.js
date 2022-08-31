@@ -62,7 +62,7 @@ export default function Register() {
                 <TextField className="form-control form-control-user"
                     type="email"
                     name="email"
-                    label="email"
+                    label="Email"
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -75,7 +75,7 @@ export default function Register() {
                     className="form-control form-control-user"
                     type="password"
                     name="password"
-                    label="password"
+                    label="Password"
                     value={values.password}
                     onBlur={handleBlur}
                     onChange={handleChange}

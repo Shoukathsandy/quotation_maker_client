@@ -1,5 +1,9 @@
-.App {
-  text-align: center;
+body {
+  /* text-align: center; */
+  background-color: white;
+}
+.App{
+  background-color: white;
 }
 
 .tool{
@@ -26,8 +30,11 @@ margin-left:auto;
   width: 450px;
   height: 500px;
   margin: auto;
+  background-color: white;
 }
-  
+.pass{
+  display: flex;
+}
 .cent{
   /* border: 2px solid black; */
   display: flex;

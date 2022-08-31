@@ -10,17 +10,17 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import "./dashboard.css";
 
-export default function Editvendor() {
+export default function Editquotation() {
   const [rowdata, setRowdata] = useState(null)
-  const { Email } = useParams();
+  const { QuotationId } = useParams();
   const getvendor = (() => {
-    fetch(`${API}/Quotation/getvendorlist/${Email}`)
+    fetch(`${API}/Quotation/getquotationbyid/${QuotationId}`)
       .then((response) => response.json())
       .then((data) => setRowdata(data))
 
 
   })
-  useEffect(() => getvendor(), [Email]);
+  useEffect(() => getvendor(), [QuotationId]);
   return (
     <div>
       {rowdata ? <Edit rowdata={rowdata} /> :
@@ -34,26 +34,28 @@ export default function Editvendor() {
 }
 function Edit({ rowdata }) {
   const navigate = useNavigate();
-  const { Email } = useParams();
+  const { QuotationId } = useParams();
   const FormValidationSchema = yup.object({
-    Vendorname: yup.string().required(),
-    Email: yup.string().email().required(),
-    Contact: yup.string().required(),
-    City: yup.string().required(),
+    Name: yup.string().required(),
+    QuotationId: yup.string().required(),
+    Actualprice: yup.number().required(),
+    Tax: yup.string().required(),
+    Billingprice:yup.number().required()
   })
   const { handleChange, handleSubmit, handleBlur, touched, values, errors } = useFormik({
     initialValues: {
-      Vendorname: rowdata.Vendorname,
-      Email: rowdata.Email,
-      Contact: rowdata.Contact,
-      City: rowdata.City
+      Name: rowdata.Name,
+      QuotationId: rowdata.QuotationId,
+      Actualprice: rowdata.Actualprice,
+      Tax: rowdata.Tax,
+      Billingprice: rowdata.Billingprice
     },
     validationSchema: FormValidationSchema,
     onSubmit: (values) => add(values)
   })
 
   const add = (data) => {
-    fetch(`${API}/Quotation/${Email}`,
+    fetch(`${API}/Quotation/updatequotation/${QuotationId}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -68,7 +70,7 @@ function Edit({ rowdata }) {
         } else {
           console.log(data);
           toast.success("success:" + data.msg);
-          navigate("/dashboardlayout/Vendors");
+          navigate("/dashboardlayout/Quotation");
         }
       }
       )
@@ -81,49 +83,58 @@ function Edit({ rowdata }) {
       <form className='addven' onSubmit={handleSubmit}
       >
         < TextField type="text"
-          name="Vendorname"
-          label="Vendorname"
+          name="Name"
+          label="Name"
           variant="outlined"
-          value={values.Vendorname}
+          value={values.Name}
           onChange={handleChange}
-          error={errors.Vendorname && touched.Vendorname}
+          error={errors.Name && touched.Name}
           onBlur={handleBlur}
-          helperText={errors.Vendorname && touched.Vendorname ? errors.Vendorname : ""}
+          helperText={errors.Name && touched.Name ? errors.Name : ""}
         />
         < TextField
           //  disabled="true"
           type="text"
-          name="Email"
-          label="Email"
+          name="QuotationId"
+          label="QuotationId"
           variant="outlined"
-          value={values.Email}
+          value={values.QuotationId}
           onChange={handleChange}
-          error={errors.Email && touched.Email}
+          error={errors.QuotationId && touched.QuotationId}
           onBlur={handleBlur}
-          helperText={errors.Email && touched.Email ? errors.Email : ""}
+          helperText={errors.QuotationId && touched.QuotationId ? errors.QuotationId : ""}
         />
         < TextField type="text"
-          name="Contact"
-          label="Contact"
+          name="Actualprice"
+          label="Actualprice"
           variant="outlined"
-          value={values.Contact}
+          value={values.Actualprice}
           onChange={handleChange}
-          error={errors.Contact && touched.Contact}
+          error={errors.Actualprice && touched.Actualprice}
           onBlur={handleBlur}
-          helperText={errors.Contact && touched.Contact ? errors.Contact : ""}
+          helperText={errors.Actualprice && touched.Actualprice ? errors.Actualprice : ""}
         />
         < TextField type="text"
-          name="City"
-          label="City"
+          name="Tax"
+          label="Tax"
           variant="outlined"
-          value={values.City}
+          value={values.Tax}
           onChange={handleChange}
-          error={errors.City && touched.City}
+          error={errors.Tax && touched.Tax}
           onBlur={handleBlur}
-          helperText={errors.City && touched.City ? errors.City : ""}
+          helperText={errors.Tax && touched.Tax ? errors.Tax : ""}
         />
-
-        <Button type="submit" variant="contained" >Save Vendor</Button>
+         < TextField type="text"
+          name="Billingprice"
+          label="Billingprice"
+          variant="outlined"
+          value={values.Billingprice}
+          onChange={handleChange}
+          error={errors.Billingprice && touched.Billingprice}
+          onBlur={handleBlur}
+          helperText={errors.Billingprice && touched.Billingprice ? errors.Billingprice : ""}
+        />
+        <Button type="submit" variant="contained" >Save Quotation</Button>
 
       </form>
     </div>

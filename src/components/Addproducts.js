@@ -9,16 +9,16 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import "./dashboard.css";
 
-export default function Addvendor() {
+export default function Addproducts() {
     const navigate = useNavigate();
     const FormValidationSchema = yup.object({
-        Vendorname:yup.string().required(),
-        Email : yup.string().email().required(),
-        Contact:yup.string().required(),
-        City:yup.string().required(),
+        Productname:yup.string().required(),
+        ItemNo : yup.string().required(),
+        Size:yup.string().required(),
+        Price:yup.string().required(),
     })
     const { handleChange, handleSubmit, handleBlur, touched, values, errors } = useFormik({
-        initialValues: { Vendorname:"",Email:"",Contact:"",City:""},
+        initialValues: { Productname:"",ItemNo:"",Size:"",Price:""},
         validationSchema: FormValidationSchema,
         onSubmit: (values) =>  add(values)
     })
@@ -26,7 +26,7 @@ export default function Addvendor() {
     const add=(data)=>{
         
 
-        fetch(`${API}/Quotation/createvendorlist`,
+        fetch(`${API}/Quotation/createproductslist`,
         {
             method: "POST",
             body: JSON.stringify(data),
@@ -40,7 +40,7 @@ export default function Addvendor() {
         } else {
             console.log(data);
             toast.success("success:" + data.msg);
-            navigate("/dashboardlayout/Vendors");
+            navigate("/dashboardlayout/Products");
         }}
         )     
        
@@ -53,44 +53,44 @@ export default function Addvendor() {
        <form className='addven' onSubmit={handleSubmit}
            >
             < TextField type="text"
-                name="Vendorname"
-                label="Vendorname"
+                name="Productname"
+                label="Productname"
                 variant="outlined"
-                value={values.Vendorname}
+                value={values.Productname}
                 onChange={handleChange}
-                error={errors.Vendorname && touched.Vendorname }
+                error={errors.Productname && touched.Productname }
                 onBlur={handleBlur} 
-                helperText={errors.Vendorname && touched.Vendorname ? errors.Vendorname : ""}
+                helperText={errors.Productname && touched.Productname ? errors.Productname : ""}
                 />
                  < TextField type="text"
-                name="Email"
-                label="Email"
+                name="ItemNo"
+                label="ItemNo"
                 variant="outlined"
-                value={values.Email}
+                value={values.ItemNo}
                 onChange={handleChange}
-                error={errors.Email && touched.Email }
+                error={errors.ItemNo && touched.ItemNo }
                 onBlur={handleBlur} 
-                helperText={errors.Email && touched.Email ? errors.Email : ""}
+                helperText={errors.ItemNo && touched.ItemNo ? errors.ItemNo : ""}
                 />
                  < TextField type="text"
-                name="Contact"
-                label="Contact"
+                name="Size"
+                label="Size"
                 variant="outlined"
-                value={values.Contact}
+                value={values.Size}
                 onChange={handleChange}
-                error={errors.Contact && touched.Contact }
+                error={errors.Size && touched.Size }
                 onBlur={handleBlur} 
-                helperText={errors.Contact && touched.Contact ? errors.Contact : ""}
+                helperText={errors.Size && touched.Size ? errors.Size : ""}
                 />
                  < TextField type="text"
-                name="City"
-                label="City"
+                name="Price"
+                label="Price"
                 variant="outlined"
-                value={values.City}
+                value={values.Price}
                 onChange={handleChange}
-                error={errors.City && touched.City }
+                error={errors.Price && touched.Price }
                 onBlur={handleBlur} 
-                helperText={errors.City && touched.City ? errors.City : ""}
+                helperText={errors.Price && touched.Price ? errors.Price : ""}
                 />
              
                 <Button type="submit"  variant="contained" >Add Vendor</Button>

@@ -9,16 +9,16 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import "./dashboard.css";
 
-export default function Addvendor() {
+export default function Addprojects() {
     const navigate = useNavigate();
     const FormValidationSchema = yup.object({
-        Vendorname:yup.string().required(),
-        Email : yup.string().email().required(),
-        Contact:yup.string().required(),
-        City:yup.string().required(),
+        Projectname:yup.string().required(),
+        ProjectId : yup.string().required(),
+        Status:yup.string().required(),
+  
     })
     const { handleChange, handleSubmit, handleBlur, touched, values, errors } = useFormik({
-        initialValues: { Vendorname:"",Email:"",Contact:"",City:""},
+        initialValues: { Projectname:"",ProjectId:"",Status:""},
         validationSchema: FormValidationSchema,
         onSubmit: (values) =>  add(values)
     })
@@ -26,7 +26,7 @@ export default function Addvendor() {
     const add=(data)=>{
         
 
-        fetch(`${API}/Quotation/createvendorlist`,
+        fetch(`${API}/Quotation/createprojectlist`,
         {
             method: "POST",
             body: JSON.stringify(data),
@@ -40,7 +40,7 @@ export default function Addvendor() {
         } else {
             console.log(data);
             toast.success("success:" + data.msg);
-            navigate("/dashboardlayout/Vendors");
+            navigate("/dashboardlayout/Projects");
         }}
         )     
        
@@ -53,47 +53,37 @@ export default function Addvendor() {
        <form className='addven' onSubmit={handleSubmit}
            >
             < TextField type="text"
-                name="Vendorname"
-                label="Vendorname"
+                name="Projectname"
+                label="Projectname"
                 variant="outlined"
-                value={values.Vendorname}
+                value={values.Projectname}
                 onChange={handleChange}
-                error={errors.Vendorname && touched.Vendorname }
+                error={errors.Projectname && touched.Projectname }
                 onBlur={handleBlur} 
-                helperText={errors.Vendorname && touched.Vendorname ? errors.Vendorname : ""}
+                helperText={errors.Projectname && touched.Projectname ? errors.Projectname : ""}
                 />
                  < TextField type="text"
-                name="Email"
-                label="Email"
+                name="ProjectId"
+                label="ProjectId"
                 variant="outlined"
-                value={values.Email}
+                value={values.ProjectId}
                 onChange={handleChange}
-                error={errors.Email && touched.Email }
+                error={errors.ProjectId && touched.ProjectId }
                 onBlur={handleBlur} 
-                helperText={errors.Email && touched.Email ? errors.Email : ""}
+                helperText={errors.ProjectId && touched.ProjectId ? errors.ProjectId : ""}
                 />
                  < TextField type="text"
-                name="Contact"
-                label="Contact"
+                name="Status"
+                label="Status"
                 variant="outlined"
-                value={values.Contact}
+                value={values.Status}
                 onChange={handleChange}
-                error={errors.Contact && touched.Contact }
+                error={errors.Status && touched.Status }
                 onBlur={handleBlur} 
-                helperText={errors.Contact && touched.Contact ? errors.Contact : ""}
-                />
-                 < TextField type="text"
-                name="City"
-                label="City"
-                variant="outlined"
-                value={values.City}
-                onChange={handleChange}
-                error={errors.City && touched.City }
-                onBlur={handleBlur} 
-                helperText={errors.City && touched.City ? errors.City : ""}
+                helperText={errors.Status && touched.Status ? errors.Status : ""}
                 />
              
-                <Button type="submit"  variant="contained" >Add Vendor</Button>
+                <Button type="submit"  variant="contained" >Add project</Button>
                 
                 </form>
     </div>

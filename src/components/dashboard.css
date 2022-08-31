@@ -20,6 +20,13 @@ body{
 
 	
 }
+.load{
+	display: flex;
+	justify-content: space-around;
+	justify-items: center;
+	margin-top: 250px;
+
+}
 .col-lg-2{
 	padding-right: 0;
     padding-left: 0;

@@ -12,10 +12,10 @@ function Vendors() {
     // const { vendorId } = useParams();
     const [tableData, setTableData] = useState([]);
     const columns =[
-        {title:"Vendorlist",field:"vendorlist"},
-        {title:"Vendor.Id",field:"vendorId"},
-        {title:"Contact",field:"contact"},
-        {title:"City",field:"city"},
+        {title:"Vendorname",field:"Vendorname"},
+        {title:"Email",field:"Email"},
+        {title:"Contact",field:"Contact"},
+        {title:"City",field:"City"},
         
       ]
 
@@ -45,7 +45,7 @@ function Vendors() {
                       onClick: (event, rowData) => {
                         console.log(rowData)
                         // Code to display custom Dialog her
-                        navigate(`/dashboardlayout/Editvendor/${rowData.vendorId}`)
+                        navigate(`/dashboardlayout/Editvendor/${rowData.Email}`)
                       }
                     },
             
@@ -55,26 +55,34 @@ function Vendors() {
                     //     onClick: (event, rowData) => {
                     //       // Code to display custom Dialog here
                           
-                    //       navigate("/dashboardlayout/Editvendor")
+                          
                     //     }
                     //   },
+                    {
+                      icon: 'delete',
+                      tooltip: 'Delete Row',
+                      onClick: (event, rowData) => ('You want to delete ' + rowData.Email)
+                    }
                       
                   ]}
-                  editable={{
-                    onRowDelete: (oldData) => {
-                      return new Promise((resolve, reject) => {
-                        setTimeout(() => {
-                          const dataDelete = [...tableData];
-                          const target = dataDelete.find(
-                            (el) => el.id === oldData.tableData.id
-                          );
-                          const index = dataDelete.indexOf(target);
-                          dataDelete.splice(index, 1);
-                          setTableData([...dataDelete]);
-                          resolve();
-                        }, 1000);
-                      });
-                    }
+                  // editable={{
+                  //   onRowDelete: (oldData) => {
+                  //     return new Promise((resolve, reject) => {
+                  //       setTimeout(() => {
+                  //         const dataDelete = [...tableData];
+                  //         const target = dataDelete.find(
+                  //           (el) => el.id === oldData.tableData.id
+                  //         );
+                  //         const index = dataDelete.indexOf(target);
+                  //         dataDelete.splice(index, 1);
+                  //         setTableData([...dataDelete]);
+                  //         resolve();
+                  //       }, 1000);
+                  //     });
+                  //   }
+                  // }}
+                  options={{
+                    actionsColumnIndex: -1
                   }}
                   />
             </div>

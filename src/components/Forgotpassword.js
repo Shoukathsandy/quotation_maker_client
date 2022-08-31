@@ -1,14 +1,15 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import InputAdornment from "@mui/material/InputAdornment";
-import MailIcon from "@mui/icons-material/Mail";
+// import InputAdornment from "@mui/material/InputAdornment";
+// import MailIcon from "@mui/icons-material/Mail";
 import TextField from "@mui/material/TextField";
 import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { API } from "../globel.js";
 import "./forgotpassword.css";
+import "../App.css";
 
 function Forgotpassword() {
     const [emailstatus, setemailstatus] = useState(null);
@@ -45,42 +46,45 @@ function Forgotpassword() {
     }
     return (
         <>
-            <h3 className="">Enter Valid Email</h3>
-            <form onSubmit={handleSubmit}>
-                <TextField
+            <h3 className="fgbtn">Enter Valid Email</h3>
+            <form onSubmit={handleSubmit} className="d-flex user fgbtn" >
+                <div className="form-group">
+                <TextField className="form-control form-control-user"
                     id="outlined-error-helper-text"
                     label="Email"
                     name="email"
                     values={values.email}
-                    sx={{ m: 1, width: 370 }}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment   position="start">
-                                <MailIcon  />
-                            </InputAdornment>
-                        ),
-                    }}
+                    // sx={{ m: 1, width: 370 }}
+                    // InputProps={{
+                    //     startAdornment: (
+                    //         <InputAdornment   position="start">
+                    //             <MailIcon  />
+                    //         </InputAdornment>
+                    //     ),
+                    // }}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.email && touched.email}
                     helperText={errors.email && touched.email ? errors.email : " "}
-                />
-                <div className="fgbtn">
+                /></div>
+        
                 <Button
                 type="submit"
                 className="btn btn-primary btn-user btn-block form-control form-control-user"
                 variant="contained">send</Button>
-                </div>
+          
             </form>
+          
             {emailstatus ? (
-                <div className="p-3 mb-2">
-                    <h5 className="m-5 text-muted ">
+                <div className="d-flex">
+                    <h5 className="m-5 text-success">
                         Reset password link was send to your email. please check your mail !
                     </h5>
                 </div>
             ) : (
                 ""
             )}
+            
         </>
     )
 }

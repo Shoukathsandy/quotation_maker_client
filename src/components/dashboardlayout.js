@@ -47,12 +47,11 @@ export default function Dashboardlayout() {
               </div>
             </div>
           </div>
-          <div className="col-lg-10">
+          <div className="col-lg-10 flex" >
             <Outlet />
           </div>
         </div>
       </div>
-
     </>
 
   )

@@ -21,7 +21,7 @@ export default function Login() {
     })
 
     const { handleChange, handleBlur, handleSubmit, values, touched, errors } = useFormik({
-        initialValues: { email: "", password: "" },
+        initialValues: { email: "testmail@gmail.com", password: "Test@123" },
         validationSchema: FormValidationSchema,
         onSubmit: (values) => {
             login(values)
@@ -55,7 +55,7 @@ export default function Login() {
                 <TextField className="form-control form-control-user"
                     type="email"
                     name="email"
-                    label="email"
+                    label="Email"
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -63,12 +63,12 @@ export default function Login() {
                     helperText={errors.email && touched.email ? errors.email : ""}
                 />
             </div>
-            <div >
+            <div className="pass">
                 < TextField
                     className="form-control form-control-user"
                     type="password"
                     name="password"
-                    label="password"
+                    label="Password"
                     value={values.password}
                     onBlur={handleBlur}
                     onChange={handleChange}
