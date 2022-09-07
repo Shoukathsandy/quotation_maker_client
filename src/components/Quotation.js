@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Button from '@mui/material/Button';
 import MaterialTable from "@material-table/core";
+import { ExcelExport } from '@progress/kendo-react-excel-export';
 import "./dashboard.css";
 
 function Quotations() {
@@ -38,7 +39,7 @@ function Quotations() {
       </div>
         
             <div className='dash'>             
-                  <MaterialTable columns={columns} data={tableData}  title="Quotation list"
+                  <MaterialTable columns={columns} data={tableData}  title="Quotation list" 
                   actions={[
                     {
                       icon: 'edit',
@@ -63,7 +64,12 @@ function Quotations() {
                       icon: 'delete',
                       tooltip: 'Delete Row',
                       onClick: (event, rowData) => ('You want to delete ' + rowData.QuotationId)
-                    }
+                    },
+                    // {
+                    //   icon:()=><Button>Export</Button>,
+                    //   tooltip:"Export to Excel",
+                    //   onClick
+                    // }
                       
                   ]}
                   // editable={{

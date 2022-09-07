@@ -37,10 +37,10 @@ export default function Addquotation() {
         .then((data)=>{
         if (data.error) {
             console.log(data.error);
-            toast.error("ERROR:" + data.error);
+            toast.error(data.error);
         } else {
             console.log(data);
-            toast.success("success:" + data.msg);
+            toast.success(data.msg);
             navigate("/dashboardlayout/Quotation");
         }}
         )     

@@ -14,7 +14,7 @@ function Customers() {
     const columns =[
         {title:"Customer name",field:"Customername"},
         {title:"Email",field:"Email"},
-        {title:"Contact",field:"Contact"},
+        {title:"Contact",field:"Contact",editable: true},
         {title:"City",field:"City"},
         
       ]

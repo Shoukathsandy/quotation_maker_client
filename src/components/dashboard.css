@@ -43,13 +43,21 @@ body{
 	position: fixed;
 	width: 230px;
 	height: 100vh;
-	background: #fffbfbe0;
+	background: rgb(228, 228, 228);
     padding-top: 5px;
 }
+/* .sbtn{
+	padding-left: 60px;
+} */
 .gpbt{
+	
 display: flex;
 flex-direction: column;
 gap: 2px;
+}
+.sbtn:hover{
+	background-color: rgb(96, 129, 221)!important;
+	color:white;
 }
 .text-muted{
 	color: #23e7dd!important;

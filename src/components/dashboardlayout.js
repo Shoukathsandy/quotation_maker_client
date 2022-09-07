@@ -15,6 +15,7 @@ export default function Dashboardlayout() {
       <div> <nav className="navbar-expand-lg primary">
         <AppBar position="static">
           <Toolbar>
+            
             <Button color="inherit" >Quotation Maker</Button>
             <div className="log">
             <Button color="inherit" onClick={() => {
@@ -34,18 +35,19 @@ export default function Dashboardlayout() {
       <div className="container-fluid ma" >
         <div className="row">
           <div className="col-lg-2">
-            <div>
+     
               <div className="sidebar">
                 <div className="gpbt">
-                  <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Dashboard")} >Dashboard</Button>
-                  <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Customers")} >Customers</Button>
-                  <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Vendors")}>Vendors</Button>
-                  <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Products")}>Products</Button>
-                  <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Projects")}>Projects</Button>
-                  <Button variant="outlined" color="primary" onClick={()=>navigate("/dashboardlayout/Quotation")}>Quotation</Button>
+                 
+                  <Button variant="text" className="sbtn" color="primary" onClick={()=>navigate("/dashboardlayout/Dashboard")} >Dashboard</Button>
+                  <Button variant="text" className="sbtn" color="primary" onClick={()=>navigate("/dashboardlayout/Customers")} >Customers</Button>
+                  <Button variant="text" className="sbtn" color="primary" onClick={()=>navigate("/dashboardlayout/Vendors")}>Vendors</Button>
+                  <Button variant="text" className="sbtn" color="primary" onClick={()=>navigate("/dashboardlayout/Products")}>Products</Button>
+                  <Button variant="text" className="sbtn" color="primary" onClick={()=>navigate("/dashboardlayout/Projects")}>Projects</Button>
+                  <Button variant="text" className="sbtn" color="primary" onClick={()=>navigate("/dashboardlayout/Quotation")}>Quotation</Button>
                 </div>
               </div>
-            </div>
+         
           </div>
           <div className="col-lg-10 flex" >
             <Outlet />

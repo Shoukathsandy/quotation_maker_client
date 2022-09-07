@@ -37,7 +37,7 @@ function Forgotpassword() {
                 if (data.error) {
                     toast.error("Error: " + data.error);
                 } else {
-                    toast.success("Success: " + data.msg);
+                    toast.success(data.msg);
                     setemailstatus(data.msg);
                     // localStorage.setItem("pass_token", data.pass_token);
                     // window.location.replace("forgetpassword");

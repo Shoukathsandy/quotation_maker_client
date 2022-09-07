@@ -26,7 +26,7 @@ function Projects() {
         
     })
     useEffect(() => getvendor(), []);
-    
+               
     return (
         <>
         <div className='dash'>

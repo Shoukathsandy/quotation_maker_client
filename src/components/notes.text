@@ -1,0 +1,10 @@
+add quotation column contains 
+1. quotation name clasify (school, hospital,mall)
+2. list of product
+3. quantity
+4. labour cost
+5. transport cost
+6. actual price
+7. tax differs for individual product 
+8. billing price
+9. action [edit,delete]
