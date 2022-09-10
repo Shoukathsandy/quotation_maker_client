@@ -3,18 +3,18 @@ import MaterialTable from "@material-table/core";
 
 const Datatable = () => {
   const [columns, setColumns] = useState([
-    { title: "Name", field: "name" },
-    { title: "Surname", field: "surname", initialEditValue: "initial edit value" },
-    { title: "Birth Year", field: "birthYear", type: "numeric" },
-    {
-      title: "Birth Place",
-      field: "birthCity",
-      lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
-    },
+    { title: "Quotation", field: "quotation" },
+    { title: "Products", field: "products" },
+    { title: "Quantity", field: "quantity", type: "numeric" },
+    { title: "Labour Cost", field: "labourCost", type: "numeric" },
+    { title: "Transport Cost", field: "transportCost", type: "numeric" },
+    { title: "Actual Price", field: "actualPrice", type: "numeric" },
+    { title: "tax", field: "tax", type: "numeric" },
+    { title: "Billing Price", field: "billingPrice", type: "numeric" },
   ]);
   const [data, setData] = useState([
-    { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-    { name: "Zerya Betül", surname: "Baran", birthYear: 2017, birthCity: 34 },
+    // { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
+    // { name: "Zerya Betül", surname: "Baran", birthYear: 2017, birthCity: 34 },
   ]);
   return (
     <MaterialTable
