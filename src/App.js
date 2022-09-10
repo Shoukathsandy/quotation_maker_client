@@ -16,8 +16,6 @@ import Addvendor from "./components/Addvendor";
 import Addproducts from "./components/Addproducts";
 import Editvendor from "./components/Editvendor";
 import Editproduct from "./components/Editproducts";
-
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Addcustomer from "./components/Addcustomer";
 import Editcustomer from "./components/Editcustomer";
@@ -25,7 +23,7 @@ import Addprojects from "./components/Addprojects";
 import Editprojects from "./components/Editprojects";
 import Addquotation from "./components/Addquotations";
 import Editquotation from "./components/Editquotations";
-
+import './App.css';
 function App() {
   return (
 
