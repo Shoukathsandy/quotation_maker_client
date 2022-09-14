@@ -15,7 +15,7 @@ body{
 	/* border: 5px solid red; */
 	/* margin-left: 25px; */
 	margin-top: 10px;
-
+	justify-content: space-around;
 	
 
 	
@@ -49,6 +49,10 @@ body{
 /* .sbtn{
 	padding-left: 60px;
 } */
+.txt{
+	text-align: center;
+	color: #1976D2;
+}
 .gpbt{
 	
 display: flex;
@@ -57,7 +61,7 @@ gap: 2px;
 }
 .sbtn:hover{
 	background-color: rgb(96, 129, 221)!important;
-	color:white;
+	color:white !important;
 }
 .text-muted{
 	color: #23e7dd!important;
@@ -102,4 +106,7 @@ i.far.fa-credit-card:hover{
 }
 .sidebar ul li a:hover{
 	text-decoration: none;
+}
+.alg{
+	margin-right: auto!important;
 }
