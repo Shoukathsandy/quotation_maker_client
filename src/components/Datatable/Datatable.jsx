@@ -19,7 +19,7 @@ const Datatable = () => {
   ]);
   return (
     <div className="dash">
-      <h3 className="txt">Add Quotation</h3>
+      <h3 className="txt">Create Quotation</h3>
       <MaterialTable
         columns={columns}
         data={data}

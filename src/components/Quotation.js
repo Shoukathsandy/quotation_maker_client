@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Button from '@mui/material/Button';
 import MaterialTable from "@material-table/core";
-import { ExcelExport } from '@progress/kendo-react-excel-export';
+// import { ExcelExport } from '@progress/kendo-react-excel-export';
 import "./dashboard.css";
 
 function Quotations() {

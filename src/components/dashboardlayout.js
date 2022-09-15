@@ -40,7 +40,7 @@ export default function Dashboardlayout() {
        
           <Container>
              <Navbar.Brand ><b>Quotation Maker</b></Navbar.Brand>
-            <Navbar.Toggle className="ms-auto"  aria-controls="responsive-navbar-nav" />
+            <Navbar.Toggle   aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse   id="responsive-navbar-nav">
               <Nav className="ms-auto"  >
                 <Nav.Link > <Button variant="text" className="sbtn alg" color="inherit"
