@@ -25,6 +25,7 @@ import Addquotation from "./components/Addquotations";
 import Editquotation from "./components/Editquotations";
 import './App.css';
 import Datatable from "./components/Datatable/Datatable";
+import QuotationTable from "./components/quotation/Quotation";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
           <Route path="/dashboardlayout/Editquotations/:QuotationId" element={<Editquotation />} />
         </Route>
 
+        <Route path="/quotation" element={<QuotationTable />} />
       </Routes>
 
       <ToastContainer autoclose={5000} />
