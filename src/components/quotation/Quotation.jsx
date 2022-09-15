@@ -10,12 +10,13 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { QuotationContext } from "../../context/Quotation";
+import Stack from "@mui/material/Stack";
 
 const sampleDate = [
-  { no: 1, product: 10, unit: 1, qty: 1, price: 1 },
-  { no: 2, product: 20, unit: 2, qty: 2, price: 2 },
-  { no: 3, product: 30, unit: 3, qty: 3, price: 3 },
-  { no: 4, product: 40, unit: 4, qty: 4, price: 4 },
+  { no: 1, product: "Product-1", unit: 1, qty: 1, price: 1 },
+  { no: 2, product: "Product-2", unit: 2, qty: 2, price: 2 },
+  { no: 3, product: "Product-3", unit: 3, qty: 3, price: 3 },
+  { no: 4, product: "Product-4", unit: 4, qty: 4, price: 4 },
 ];
 
 const TableRowComponent = () => {
@@ -35,9 +36,13 @@ const TableRowComponent = () => {
     setText({ ...text, [e.target.name]: e.target.value });
   };
 
-  const handleEdit = () => {};
+  const handleEdit = () => {
 
-  const handleDelete = () => {};
+  };
+
+  const handleDelete = () => {
+    
+  };
 
   return (
     <TableRow>
@@ -47,9 +52,10 @@ const TableRowComponent = () => {
       </TableCell>
       <TableCell align="center">
         <Select sx={{ width: "180px" }} value={value} label="product" onChange={(e) => setValue(e.target.value)}>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={"Product-1"}>Product-1</MenuItem>
+          <MenuItem value={"Product-2"}>Product-2</MenuItem>
+          <MenuItem value={"Product-3"}>Product-3</MenuItem>
+          <MenuItem value={"Product-4"}>Product-4</MenuItem>
         </Select>
       </TableCell>
       <TableCell align="center">
@@ -75,38 +81,69 @@ const Quotation = () => {
   const [size, setSize] = useState(4);
 
   return (
-    <Paper sx={{ width: "100%" }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              <TableCell>S.NO</TableCell>
-              <TableCell align="center">Code</TableCell>
-              <TableCell align="center">Product</TableCell>
-              <TableCell align="center">Unit</TableCell>
-              <TableCell align="center">Qty</TableCell>
-              <TableCell align="center">Price</TableCell>
-              <TableCell align="center">Tax</TableCell>
-              <TableCell align="center">Total</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-            <TableRowComponent />
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Paper>
+    <>
+      <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-around" }}>
+        <TextField id="outlined-basic" label="Code" variant="outlined" />
+        <TextField id="outlined-basic" label="Code" variant="outlined" />
+        <TextField id="outlined-basic" label="Code" variant="outlined" />
+      </div>
+      <Paper sx={{ width: "100%" }}>
+        <TableContainer sx={{ maxHeight: 350 }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                <TableCell>S.NO</TableCell>
+                <TableCell align="center">Code</TableCell>
+                <TableCell align="center">Product</TableCell>
+                <TableCell align="center">Unit</TableCell>
+                <TableCell align="center">Qty</TableCell>
+                <TableCell align="center">Price</TableCell>
+                <TableCell align="center">Tax</TableCell>
+                <TableCell align="center">Total</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+              <TableRowComponent />
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+          justifyContent: "space-around",
+          marginTop: "30px",
+        }}
+      >
+        <Stack direction="row" spacing={2}>
+          <p>Total Price</p>
+          <TextField id="outlined-basic" value="" name="tax" />
+        </Stack>
+        <Stack direction="row" spacing={2} alignItems="center">
+          <p>Total Quantity</p>
+          <TextField id="outlined-basic" value="" name="tax" />
+        </Stack>
+        {/* <Stack direction="row" spacing={2}>
+          <p>Item 1</p>
+          <TextField id="outlined-basic" value="" name="tax" />
+        </Stack> */}
+      </div>
+    </>
   );
 };
 
