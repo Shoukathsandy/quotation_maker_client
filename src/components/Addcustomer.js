@@ -14,7 +14,7 @@ export default function Addcustomer() {
     const FormValidationSchema = yup.object({
         Customername:yup.string().required(),
         Email : yup.string().email().required(),
-        Contact:yup.string().required(),
+        Contact:yup.number().required(),
         City:yup.string().required(),
     })
     const { handleChange, handleSubmit, handleBlur, touched, values, errors } = useFormik({

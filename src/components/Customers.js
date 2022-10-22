@@ -1,15 +1,16 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import { API } from "../globel";
 import { useEffect, useState } from 'react';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Button from '@mui/material/Button';
 import MaterialTable from "@material-table/core";
+import { ExportCsv, ExportPdf } from "@material-table/exporters";
 import "./dashboard.css";
 
 function Customers() {
     const navigate = useNavigate();
-    // const { vendorId } = useParams();
+    const { Email } = useParams();
     const [tableData, setTableData] = useState([]);
     const columns =[
         {title:"Customer name",field:"Customername"},
@@ -58,10 +59,11 @@ function Customers() {
                           
                     //     }
                     //   },
-                    {
+                   {
                       icon: 'delete',
-                      tooltip: 'Delete Row',
-                      onClick: (event, rowData) => ('You want to delete ' + rowData.Email)
+                      tooltip: 'Delete User',
+                      onClick: (event, rowData) => navigate(`/dashboardlayout/Deletecustomer/${rowData.Email}`)
+                     
                     }
                       
                   ]}
@@ -82,8 +84,23 @@ function Customers() {
                   //   }
                   // }}
                   options={{
-                    actionsColumnIndex: -1
+                    actionsColumnIndex: -1,
+                    exportButton: true,
+                    saveButton: true,
+                    exportMenu: [
+                      {
+                        label: "Export PDF",
+                        exportFunc: (cols, datas) => 
+                        ExportPdf(cols, datas, "myPdfFileName"),
+                      },
+                      {
+                        label: "Export CSV",
+                        exportFunc: (cols, datas) =>
+                          ExportCsv(cols, datas, "myCsvFileName"),
+                      },
+                    ],
                   }}
+                  
                   />
             </div>
            

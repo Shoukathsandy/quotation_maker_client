@@ -23,8 +23,13 @@ import Addprojects from "./components/Addprojects";
 import Editprojects from "./components/Editprojects";
 import Addquotation from "./components/Addquotations";
 import Editquotation from "./components/Editquotations";
+import Deletevendor from "./components/Deletevendor";
+import Deleteproduct from "./components/Deleteproduct"
+import Deleteproject from "./components/Deleteproject";
 import './App.css';
-import Datatable from "./components/Datatable/Datatable";
+import Deletecustomer from "./components/Deletecustomer";
+import Deletequotation from "./components/Deletequotation";
+// import Datatable from "./components/Datatable/Datatable";
 
 function App() {
   return (
@@ -58,7 +63,13 @@ function App() {
           <Route path="/dashboardlayout/Editcustomer/:Email" element={<Editcustomer />} />
           <Route path="/dashboardlayout/Addprojects" element={<Addprojects />} />
           <Route path="/dashboardlayout/Editprojects/:ProjectId" element={<Editprojects />} />
-          <Route path="/dashboardlayout/Addquotation" element={<Datatable />} />
+          {/* <Route path="/dashboardlayout/Addquotation" element={<Datatable />} /> */}
+          <Route path="/dashboardlayout/Addquotation" element={<Addquotation />} />
+          <Route path="/dashboardlayout/Deletevendor/:Email" element={<Deletevendor />} />
+          <Route path="/dashboardlayout/Deleteproduct/:ItemNo" element={<Deleteproduct />} />
+          <Route path="/dashboardlayout/Deleteproject/:ProjectId" element={<Deleteproject />} />
+          <Route path="/dashboardlayout/Deletecustomer/:Email" element={<Deletecustomer />} />
+          <Route path="/dashboardlayout/Deletequotation/:QuotationId" element={<Deletequotation />} />
           <Route path="/dashboardlayout/Editquotations/:QuotationId" element={<Editquotation />} />
         </Route>
 
